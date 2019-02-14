@@ -1,13 +1,17 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li routerLinkActive="active"><a routerLink="auth">Authentification</a></li>
+        <li routerLinkActive="active"><a routerLink="appareils">Appareils</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <h2>Posts</h2> 
-      <ul class="list-group">
-          <app-post *ngFor="let post of posts"
-                    [title]="post.title"
-                    [content]="post.content">
-          </app-post>
-      </ul>
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>
