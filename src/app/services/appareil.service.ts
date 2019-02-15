@@ -8,22 +8,11 @@ export class AppareilService {
 
     appareilsSubject = new Subject<any[]>();
 
-    private appareils = [
-        {
-          name: 'Machine à laver',
-          status: 'éteint'
-        },
-        {
-          name: 'Frigo',
-          status: 'allumé'
-        },
-        {
-          name: 'Ordinateur',
-          status: 'éteint'
-        }
-      ];
+    private appareils = [];
 
-      constructor(private httpClient: HttpClient){}
+      constructor(private httpClient: HttpClient){
+        this.getAppareilsFromServer();
+      }
 
       addAppareil(name: string, status: string){
           const appareilObj = {
@@ -88,7 +77,7 @@ export class AppareilService {
             );
       }
 
-    /*  getAppareilsFromServer() {
+      getAppareilsFromServer() {
         this.httpClient
           .get<any[]>('https://httpclient-dem.firebaseio.com/appareils.json')
           .subscribe(
@@ -100,5 +89,5 @@ export class AppareilService {
               console.log('Erreur ! : ' + error);
             }
           );
-    }*/
+     }
   }
